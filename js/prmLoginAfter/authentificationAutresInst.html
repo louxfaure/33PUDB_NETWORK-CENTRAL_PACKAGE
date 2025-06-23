@@ -1,0 +1,17 @@
+<h2 class="md-headline light-text layout-align-center-center layout-row flex">
+    <span ng-if="$ctrl.institution == 'NETWORK'" translate='parallel.login.networkview.titre'>Pour un accès  authentifié, connectez-vous à la vue de l’un des établissements suivants</span>
+    <span ng-if="$ctrl.institution != 'NETWORK'" translate='parallel.login.autresinst.titre'>Membre d'un autre&#233;tablissement du r&#233;seau Bordelais?</span>
+</h2>
+<p ng-if="$ctrl.institution != 'NETWORK'" class="layout-align-center-center layout-row flex"><span  translate='parallel.login.autresinst.descr'>Choisissez le logo de votre établissement pour vous
+    authentifier</span></p>
+<div id="REBUB-Authentification-Ext" layout="raw">
+    <md-list-item ng-repeat="PUDB_Auth_List in $ctrl.PUDB_Auth_Lists" ng-show="$ctrl.setIdPShow('{{PUDB_Auth_List[1]}}')"
+        class="rebub-authentification-externe">
+        <a ng-href="{{$ctrl.auth_base_url_const}}{{PUDB_Auth_List[1]}}&lang=fr_FR&target-url={{PUDB_Auth_List[3]}}&authenticationProfile={{PUDB_Auth_List[2]}}"
+            &auth=SAML&isSilent=false"
+            ng-attr-title="Après vous être authentifié sur le portail de {{PUDB_Auth_List[5]}} vous serez redirigé vers le Babord + de l'institution">
+            <img class="rebub-logo" id="{{PUDB_Auth_List[6]}}_Logo" ng-src="custom/33PUDB_NETWORK-CENTRAL_PACKAGE/img/Logos/{{PUDB_Auth_List[1]}}_Logo.png"
+                ng-attr-alt="Logo de  {{PUDB_Auth_List[5]}}">
+        </a>
+    </md-list-item>
+</div>

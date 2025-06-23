@@ -1,0 +1,813 @@
+@charset "UTF-8";
+
+/*
+##     ## ######## ##    ## ##     ## 
+###   ### ##       ###   ## ##     ## 
+#### #### ##       ####  ## ##     ## 
+## ### ## ######   ## ## ## ##     ## 
+##     ## ##       ##  #### ##     ## 
+##     ## ##       ##   ### ##     ## 
+##     ## ######## ##    ##  ####### 
+*/
+
+/*Compte lecteur*/
+/*33PUDB_NETWORK_CL disparition amendes+frais, modification infos personnelles*/
+/*############################################################################*/
+#personalDetails,
+prm-account-links,
+md-content#accountoverview md-tab-item:nth-child(4),
+prm-fines-overview {
+  display: none;
+}
+
+/*augmentation taille texte dans onglet*/
+md-tabs md-tabs-wrapper md-tabs-canvas md-pagination-wrapper md-tab-item:not([disabled]) {
+  min-width: 8em;
+}
+
+/*33PUDB_NETWORK_CL_Adrese_compte_lecteur Empêche le chevauchement des lignes*/
+/*###########################################################################*/
+prm-personal-info md-input-container.md-input-has-value label:not(.md-no-float) {
+  opacity: .8;
+  transform: translate3d(0, 15px, 0) scale(0.85);
+}
+
+/*desactivation border sur le bouton du choix du type d'authentification*/
+
+md-dialog-content .disable-hover .md-button:hover,
+md-dialog-content .disable-hover button:hover,
+md-dialog-content .disable-hover .md-button:focus,
+md-dialog-content .disable-hover button:focus {
+  box-shadow: unset;
+}
+
+/*33PUDB_NETWORK_AFA_Authentification autres institutions*/
+/*#######################################################*/
+prm-login.layout-row {
+  flex-direction: column;
+}
+
+#REBUB-Authentification-Ext {
+  justify-content: space-between;
+  height: 100px;
+}
+
+.rebub-logo {
+  width: 100%;
+  margin-top: auto;
+}
+
+#INP_Logo {
+  max-height: 65px;
+}
+
+@media screen and (max-width: 960px) {
+  #REBUB-Authentification-Ext {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
+
+  prm-login-after {
+    height: 100px;
+  }
+
+  .rebub-authentification-externe {
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .rebub-logo {
+    width: 90%;
+  }
+}
+
+/* zone avec les logos pour l'authentification inter institutions */
+#REBUB-Authentification-Ext {
+  background-color: white;
+}
+
+/*END 33PUDB_NETWORK_AFA_Authentification autres institution*/
+/*
+/*Disponinilité dans les autres institutions*/
+md-list-item.rebub-autres-abos {
+  flex-wrap: wrap;
+}
+
+rebub-autres-abos {
+  flex-basis: 100%;
+}
+
+/*########  ########  #### ######## ########    ########  ####  ######  ########  ##          ###    ##    ## 
+##     ## ##     ##  ##  ##       ##          ##     ##  ##  ##    ## ##     ## ##         ## ##    ##  ##  
+##     ## ##     ##  ##  ##       ##          ##     ##  ##  ##       ##     ## ##        ##   ##    ####   
+########  ########   ##  ######   ######      ##     ##  ##   ######  ########  ##       ##     ##    ##    
+##     ## ##   ##    ##  ##       ##          ##     ##  ##        ## ##        ##       #########    ##    
+##     ## ##    ##   ##  ##       ##          ##     ##  ##  ##    ## ##        ##       ##     ##    ##    
+########  ##     ## #### ######## ##          ########  ####  ######  ##        ######## ##     ##    ##
+*/
+/*33PUDB_NETWORK_AFA_FACETTES : Masque le titre des facettes "Affiner vos résultats"*/
+/*##################################################################################*/
+prm-facet h2[translate="nui.facets.title"] {
+  display: none;
+}
+
+/*33PUDB_NETWORK_TOPLEVELFACETTE : Masque les entées Opan access et Peer Reviewed de la top level facette"*/
+/*##########################################################################################################*/
+/* Hide facet Open access */
+[data-facet-value="tlevel-open_access"] {
+  display: none !important;
+}
+
+/* Hide facet Peer Reviewed */
+[data-facet-value="tlevel-peer_reviewed"] {
+  display: none !important;
+}
+/*AFA 04-06-2025 : Masque les facettes types de documents non désirées par les memebres du réseau*/
+/*##########################################################################################################*/
+[data-facet-value="rtype-review_article"] {
+  display: none !important;
+}
+[data-facet-value="rtype-primary_source"] {
+  display: none !important;
+}
+[data-facet-value="rtype-preprint"] {
+  display: none !important;
+}
+[data-facet-value="rtype-retracted_publication"] {
+  display: none !important;
+}
+[data-facet-value="rtype-withdrawn_publication"] {
+  display: none !important;
+}
+[data-facet-value="rtype-retraction_notice"] {
+  display: none !important;
+}
+[data-facet-value="rtype-withdrawal_notice"] {
+  display: none !important;
+}
+[data-facet-value="rtype-publication_exp_concern"] {
+  display: none !important;
+}
+[data-facet-value="rtype-publication_addendum"] {
+  display: none !important;
+}
+[data-facet-value="rtype-publication_corrigendum"] {
+  display: none !important;
+}
+[data-facet-value="rtype-online_first "] {
+  display: none !important;
+}
+/*33PUDB Citation trail
+#########################
+/*33PUDB_NETWORK_CL_effacement liens dans citation trails*/
+prm-times-cited {
+  display: none;
+}
+
+prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.Find"],
+prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.sources"],
+prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.or"] {
+  display: none;
+}
+
+/*33PUDB_NETWORK_CL_TRIE Déplace le trie au dessus des facettes*/
+/*##############################################################*/
+@media screen and (min-width: 960px) {
+  prm-facet .primo-scrollbar {
+    overflow-x: visible !important;
+  }
+
+  #facets>prm-facet>div>div>div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row {
+    margin-left: 315%;
+    position: absolute;
+    /* margin-top: -27px; */
+    z-index: 12;
+  }
+
+  #facets>prm-facet>div>div>div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row>div>h3 {
+    font-size: 0.85em;
+    font-weight: 600;
+  }
+
+  prm-search-result-sort-by {
+    padding-bottom: 6px;
+    font-size: 14px;
+  }
+
+  prm-facet>div.primo-scrollbar.is-stuck>div>div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row {
+    display: none;
+  }
+}
+
+/*END 33PUDB_NETWORK_CL_TRIE*/
+/*Masquage du direct link vers la version html*/
+prm-quick-link prm-icon[icon-definition="html-link"],
+prm-quick-link prm-icon[icon-definition="html-link"]+span,
+prm-quick-link prm-icon[icon-definition="html-link"]+span+prm-icon,
+prm-quick-link span[translate="fulldisplay.HTML"]+prm-icon+prm-icon[icon-definition="chevron-right"],
+prm-quick-link prm-icon[icon-definition="html-link"] {
+  display: none;
+}
+
+/*+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
+ |c|O|L|L|E|C|T|I|O|N| |D|I|S|C|O|V|E|R|Y|
+ +-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+*/
+div.infoEx {
+  font-size: smaller;
+}
+
+.is-gallery-view div.infoEx {
+  display: none;
+}
+
+/*
+######## ##     ## ##       ##          ########  ####  ######  ########  ##          ###    ##    ## 
+##       ##     ## ##       ##          ##     ##  ##  ##    ## ##     ## ##         ## ##    ##  ##  
+##       ##     ## ##       ##          ##     ##  ##  ##       ##     ## ##        ##   ##    ####   
+######   ##     ## ##       ##          ##     ##  ##   ######  ########  ##       ##     ##    ##    
+##       ##     ## ##       ##          ##     ##  ##        ## ##        ##       #########    ##    
+##       ##     ## ##       ##          ##     ##  ##  ##    ## ##        ##       ##     ##    ##    
+##        #######  ######## ########    ########  ####  ######  ##        ######## ##     ##    ## 
+*/
+
+/*33PUDB ORDRE des sections (la section avenoyé vers ne pas être déplacé dans le menu de configuration de la vue*/
+/*---------------------------------------------------------------------------------------------------------------*/
+/* Ordre des sections */
+.full-view-inner-container {
+  padding-bottom: 10em;
+  display: flex;
+  flex-direction: column;
+}
+
+#getit_link1_0 {order: 0;}
+#getit_link2_0 {order: 1;}
+#details {order: 2;}
+#links {order: 3;display:none;}
+#mayAlsoBeFoundAt{order: 4;}
+#action_list {order: 5;}
+#citationTrails {order: 6;}
+#moreFromTheSameCollection {order: 7;}
+#moreFromTheSameCourse {order: 8;}
+#virtualBrowse {order: 9};
+#tags {order: 10; display: none;}
+#searchWithinJournal {order: 11; display: none}
+#recommendations {order: 12;display: none}
+#quickAccess {order: 13;display: none}
+
+
+
+/*Ordre des lien sde navigation*/
+/*Menu de navigation*/
+[aria-label="Notice abrégée"],[aria-label="Notice abr&#233;g&#233;e"],[aria-label="Top"],[aria-label="Arriba"] {order: 0 !important;}
+[aria-label="Comment l'obtenir"],[aria-label="How to get it"],[aria-label="Cómo obtenerlo"] {order: 1 !important;}
+[aria-label="En ligne"],[aria-label="View it"],[aria-label="Visualizarlo"] {order: 1 !important;}
+[aria-label="En rayon"],[aria-label="Get it"],[aria-label="Obténgalo"] {  order: 2 !important;}
+[aria-label="Notice détaillée"],[aria-label="Notice d&#233;taill&#233;e"],[aria-label="Details"],[aria-label="Detalles"] {  order: 3 !important;}
+[aria-label="Envoyer vers"],[aria-label="Send to"],[aria-label="Enviar a"] { order: 4 !important;}
+[aria-label="Peut également être détenu par"],[aria-label="May Also Be held By"],[aria-label="También puede ser retenido por"] {order: 5 !important;}
+[aria-label="Citations"] { order: 6 !important;}
+[aria-label="Sélection"],[aria-label="S&#233;lection"],[aria-label="Collection"],[aria-label="Colección"] {order: 7 !important;}
+[aria-label="Cours"],[aria-label="Course"],[aria-label="Courso"] {order: 8 !important;}
+[aria-label="Etagère virtuelle"],[aria-label="Etag&#232;re virtuelle"],[aria-label="Virtual browse"],[aria-label="Navegación virtual"] {order: 9 !important;}
+[aria-label="Tags"],[aria-label="Etiquetas"] { order: 10 !important;  display: none;}
+[aria-label="Recommandations"],[aria-label="Recommendations"],[aria-label="Recomendaciones"] { order: 11 !important; display: none;}
+[aria-label="Rechercher dans"],[aria-label="nal	Search inside"],[aria-label="Buscar dentro"] { order: 12 !important; display: none;}
+[aria-label="Accès rapide"],[aria-label="Quick access"],[aria-label="Acceso rápido"] { order: 13 !important; display: none;} */
+
+/*33PUDB Suppression des TAGS*/
+/*---------------------------*/
+/*Menu*/
+[aria-label="Tags"],
+[aria-label="Etiquetas"],
+[aria-label="nui.mainmenu.label.tags"] {
+  display: none;
+}
+
+/*Sections*/
+#tags {
+  display: none;
+}
+
+/*33PUDB Suppression de la section Liens*/
+/*---------------------------*/
+/*Menu*/
+[aria-label="Liens"],[aria-label="Links"],[aria-label="Enlaces"] {
+  display: none;
+}
+
+/*Sections*/
+#links {
+  display: none;
+}
+
+
+/*33PUDB Masquer searchWithinJournal*/
+/*----------------------------------*/
+
+#searchWithinJournal {
+  display: none;
+}
+
+/* réduction de la marge entre les rubriques*/
+.full-view-section {
+  margin-top: 1em;
+}
+
+.full-view-section .section-title {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/*33PUDB_AFA Empêche l'affichage du mesage "Aucun document à afficher pour cet emplacement. Veuillez vous identifier ci-dessus pour voir les options de demande disponibles."
+Quand aps de résultats Alma*/
+.padding-left-medium[ng-if="$ctrl.currLoc.locationNoItems"] {
+  display: none;
+}
+
+/* #Footer */
+prm-explore-footer-after .footer {
+  width: 100%;
+  margin: 0 auto;
+  background: #eef0eb;
+  padding-top: 10px;
+  padding-bottom: 35px;
+  z-index: 10;
+  position: relative;
+}
+
+prm-explore-footer-after .footer .footer-inner {
+  padding: 0 25px;
+  text-align: center;
+}
+
+prm-explore-footer-after .footer .footer-inner .footer-logo-alignement {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+prm-explore-footer-after .footer .footer-inner .footer-logo-alignement .footer-logo {
+  /* display:inline-block; */
+  margin-right: 20px;
+  margin-top: 10px;
+
+}
+
+prm-explore-footer-after .footer .footer-inner .footer-logo-alignement .footer-logo img {
+  max-width: 200px;
+  max-height: 200px;
+
+}
+
+prm-explore-footer-after .footer .footer-inner .footer-instruction {
+  font-family: 'Cronos Light';
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+prm-user-area-expandable-after {
+  display: flex;
+}
+
+prm-user-area-expandable-after #panier-covid {
+  margin: auto;
+}
+
+/*Sélections*/
+prm-collection-gallery-header h1 {
+  text-transform: uppercase;
+}
+
+/* Messages d'alertes */
+/* Bug fixing: after adding the announcement bar the overlays (like when you click on the more (...) button) don't
+show up properly and the following code fixes it */
+
+/* md-backdrop, .md-dialog-container {
+  position: fixed; } */
+
+/* md-toast {
+  z-index: 79; 
+  @media screen and (min-width: 1920px) {
+    md-toast.page-notification .md-toast-content {
+      max-width: 999px;
+  }
+}
+  } */
+/*Note fusion notices*/
+div .pudb-dedup-advice {
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #a3cfbb;
+  border-radius: 0.375rem;
+  ;
+  color: #146c43;
+  background-color: #d1e7dd;
+  ;
+
+}
+
+/* TOC ajout 20230125 */
+.toc1,
+.toc1_alone {
+  margin-top: 10px;
+}
+
+.toc1,
+.toc1_alone,
+.toc2,
+.toc3,
+.toc4,
+.toc5,
+.toc6,
+.toc7,
+.toc8 {
+  display: block;
+}
+
+.vol {
+  text-transform: capitalize;
+}
+
+.toc,
+.toc1 {
+  font-weight: bold;
+}
+
+.toc2 {
+  padding-left: 15px;
+}
+
+.toc3 {
+  padding-left: 30px;
+}
+
+/*On continue identation pour reso>1280px*/
+@media screen and (min-width: 1280px) {
+  .toc4 {
+    padding-left: 45px;
+  }
+
+  .toc5 {
+    padding-left: 60px;
+  }
+
+  .toc6 {
+    padding-left: 75px;
+  }
+
+  .toc7 {
+    padding-left: 90px;
+  }
+
+  .toc8 {
+    padding-left: 105px;
+  }
+}
+
+/*sous 1280px les tocs de niveau 4 à 8 ont la même identation*/
+@media screen and (max-width: 1279px) {
+
+  .toc4,
+  .toc5,
+  .toc6,
+  .toc7,
+  .toc8 {
+    padding-left: 45px;
+  }
+}
+
+/* END TOC */
+
+/* bouton présent dans un autre établissement */
+/* présent dans un autre établissement elec + papier */
+
+/* prm-alma-more-inst h3.medium-uppercase-bold,
+prm-full-view-service-container-after h3.medium-uppercase-bold {
+  font-weight: 600;
+  font-size: 18px !important;
+  text-transform: none !important;
+  padding: 10px
+}
+
+prm-alma-more-inst md-tabs md-content,
+prm-alma-more-inst md-tabs md-content.md-primoExplore-theme,
+prm-full-view-service-container-after .md-primoExplore-theme {
+  background-color: #f3f3f3;
+}
+
+prm-alma-more-inst md-tab-content .md-button.neutralized-button,
+md-tabs.tabs-as-app .back-button,
+prm-full-view-service-container-after .md-button.neutralized-button {
+  display: flex;
+  padding: 0;
+  background: #fff;
+  border: 1px solid #c3c3c3;
+  outline: none;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 5px
+}
+
+md-tab-content .md-button.neutralized-button div.md-list-item-text,
+span[translate="nui.getit_other.back"],
+prm-full-view-service-container-after .md-button.neutralized-button .md-list-item-text {
+  padding: 5px 15px;
+  height: 100%;
+}
+
+prm-alma-more-inst md-tab-content .md-button.neutralized-button prm-icon,
+md-tabs.tabs-as-app .back-button prm-icon,
+prm-full-view-service-container-after .md-button.neutralized-button prm-icon {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px;
+  color: #fff !important;
+  height: 100% !important;
+  font-size: 1.5em;
+  background: rgba(0, 0, 0, 0.08);
+} */
+
+/* PCO 06/2024 personnalisations de la recherche avancée */
+
+prm-advanced-search .collapsed-button {
+  text-transform: uppercase;
+  background-color: #f3f3f3;
+  color: #fff;
+  border-radius: 4px;
+  left: 200px;
+  right: auto;
+  margin-top: -2px;
+  margin-left: 5px;
+}
+
+.md-button:hover:not([disabled]) {
+  background-color: #E1E1E1;
+}
+
+.md-button:focus:not([disabled]) {
+  background-color: #E1E1E1;
+}
+
+prm-advanced-search .search-string md-select span {
+  text-decoration: underline;
+  color: #026db9;
+}
+
+prm-search-bar .advanced-search-wrapper prm-advanced-search .search-string .string-field.bold-text input {
+  padding: 5px 60px 5px 8px;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: initial;
+  background-image: url('https://hollis.harvard.edu/primo-explore/custom/HVD2/img/pencil.svg');
+  background-repeat: no-repeat;
+  background-position: bottom 4px right 4px;
+  background-size: 20px;
+  background-color: #fbfbfb;
+  border-radius: 4px;
+}
+
+prm-search-bar .advanced-search-wrapper .search-string .string-field {
+  padding: 0 5px;
+}
+
+prm-search-bar .advanced-search-wrapper .search-string .string-field.tiny-bold.uppercase {
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+prm-advanced-search .complex-rows {
+  border-bottom: none;
+}
+
+/*[AFA 20240624] Message d'information dans le full display pour les notices fusionnées*/
+.Rebub_Alerte_Fusion {
+  height: unset;
+  display: block;
+}
+/*Notice getit primove*/
+/*modification En ligne */
+#getit_link1_0 prm-full-view-service-container .md-tabs md-content,
+md-tabs md-content.md-primoExplore-theme {
+  background-color: #fff;
+  padding-left: 10px;
+}
+
+/* #alma_other_members {
+  background-color: #009ee0 !important;
+  border-color: #009ee0 !important;
+  color: white !important;
+} */
+
+prm-alma-other-members md-tab-content {
+  background-color: #fff;
+}
+
+#alma_other_members .layout-align-start-center {
+  justify-content: center;
+}
+
+#alma_other_members .bold {
+  font-weight: 500;
+}
+
+alma-howovp .neutralized-button:hover.md-button,
+alma-howovp .neutralized-button:hover a:hover {
+  box-shadow: none;
+}
+
+prm-request-services .labeled-block .block-body {
+  justify-content: right;
+  margin-right: 10px;
+}
+
+[translate="nui.request.request"] {
+  display: none;
+}
+
+[translate="nui.request.norequests"] {
+  justify-content: right;
+  display: grid;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+prm-request-services div:first {
+  text-align: right;
+  margin-right: 10px;
+}
+
+[aria-label="Demander"] {
+  padding: 10px !important;
+  -webkit-box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.22) !important;
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.22) !important;
+  border-radius: 5px;
+  margin-bottom: 10px !important;
+}
+
+prm-opac .separate-list-items md-list-item .md-list-item-text {
+  padding: 0.75em 2em;
+  /*border-left: 5px solid #e77448;*/
+  box-shadow: -10px 0px 1px -8px !important;
+  margin-top: 5px;
+}
+
+prm-opac md-list md-list-item:last-of-type,
+prm-location-items md-list {
+  box-shadow: none;
+}
+
+prm-opac h6.md-title {
+  font-weight: 700;
+}
+
+prm-opac .section-title {
+  text-transform: none;
+}
+
+prm-stack-map .md-button,
+prm-location-holdings prm-stack-map .md-button {
+  border: 1px solid rgba(0, 0, 0, 0.22) !important;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  -webkit-box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.22) !important;
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.22) !important;
+  padding: 0px !important;
+}
+
+prm-locations h3.section-title {
+  font-size: 18px !important;
+
+}
+
+prm-opac h5.section-title {
+  font-size: 18px !important;
+}
+
+prm-opac .separate-list-items md-list-item .md-list-item-text {
+  /* border-left:0px;*/
+}
+
+
+
+.record-status-text a:hover {
+  box-shadow: none;
+}
+
+/* .bar prm-authentication .md-button:hover:not([disabled]) {
+  background-color: rgb(153, 153, 153);
+}
+
+prm-location md-dialog md-list md-list-item .md-button:hover:not([disabled]).neutralized-button,
+md-dialog md-list md-list-item:hover:not([disabled]),
+md-dialog md-list md-list-item .md-button:hover:not([disabled]),
+md-dialog md-list md-list-item .md-button:focus:not([disabled]) {
+  background-color: white !important;
+} */
+
+/* .md-button.button-link:hover:not([disabled]),
+.md-button.button-link:focus:not([disabled]),
+.md-button.button-as-link:hover:not([disabled]),
+.md-button.button-as-link:focus:not([disabled]) {
+  background-color: #009ee0 !important;
+  border: 1px solid #009ee0;
+} */
+
+prm-alma-viewit-items .separate-list-items md-list-item .md-list-item-text {
+  max-width: 85%;
+}
+
+/*Get it Ligne d'affichage Disponibilité, Localisation Cote */
+/*On remplace le ; et la virgule par des > on préfixe la cote et la localisation*/
+span[ng-if="$ctrl.loc.location.subLocation"],span[ng-if="$ctrl.currLoc.location.subLocation"] {
+  display: none;
+}
+span[ng-if="$ctrl.loc.location && $ctrl.loc.location.subLocation && $ctrl.getSubLibraryName($ctrl.loc.location)"]::before,span[ng-if="$ctrl.currLoc.location && $ctrl.currLoc.location.subLocation && $ctrl.getSubLibraryName($ctrl.currLoc.location)"]::before {
+content: " > Localisation : ";
+font-weight: bold;
+}
+span[ng-if="$ctrl.loc.location.callNumber"],span[ng-if="$ctrl.currLoc.location.callNumber"]{
+display:none;      
+}
+span[ng-if="$ctrl.loc.location.callNumber"]:last-child, span[ng-if="$ctrl.currLoc.location.callNumber"]:last-child {
+display: inline;
+}
+span[ng-if="$ctrl.loc.location.callNumber"]:last-child::before, span[ng-if="$ctrl.currLoc.location.callNumber"]:last-child::before {
+font-weight: bold;
+content:"> Cote : ";
+}
+
+
+/* AFA 5/06/2025 Get it Réservation ajout d'un message enn fonction de la bibliothèque de retrait */
+/* Styles pour la modale */
+.modal {
+  display: none; /* Par défaut, la modale est masquée */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+
+/* Contenu de la modale */
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto; /* Centrer verticalement et horizontalement */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Largeur de la modale */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton de fermeture */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #333;
+}
+/* AFA 05/06/2025 Get IT Liste des localisations masquahe des Mentions "Documents dans la localisation (nui.aria.locationItems.locationItems)" et "Emplacements (nui.locations.header)"*/
+
+/* "Emplacements (nui.locations.header)" */
+prm-location-items > h5{
+  display: none;
+}
+/* Ajoute un petit espacement" */
+prm-location-items > div:first-child{
+  margin-top: 1em;
+}
+/* Masque "Documents dans la localisation (nui.aria.locationItems.locationItems)" */
+prm-locations > div:first-child {
+  display: none;
+}
+
+
+

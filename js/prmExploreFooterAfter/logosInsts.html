@@ -1,0 +1,13 @@
+<div class="footer" ng-if="$ctrl.displayFooter">
+    <div class="footer-inner">
+        <div class="footer-instruction">
+            {{$ctrl.message}}
+        </div>
+        <div class="footer-logo-alignement">
+            <a ng-repeat="almaInst in $ctrl.institutionsList" class="footer-logo"
+                href="{{almaInst['url']}}" title="{{almaInst['name']}}" target="_blank">
+                <img ng-src="custom/33PUDB_NETWORK-CENTRAL_PACKAGE/img/Logos/33PUDB_{{almaInst['code']}}_Logo.png" />
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+{
+  "name": "CENTRAL_PACKAGE",
+  "version": "1.0.0",
+  "description": "The development package allows you to configure :",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louxfaure/CENTRAL_PACKAGE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/louxfaure/CENTRAL_PACKAGE/issues"
+  },
+  "homepage": "https://github.com/louxfaure/CENTRAL_PACKAGE#readme",
+  "devDependencies": {}
+}

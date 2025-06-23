@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <table style="width: 600px;
+        display: block !important;
+        max-width: 600px !important;
+        margin: 0 auto !important;
+        clear: both !important;
+        border-spacing: 0 !important;
+        padding: 0 !important;
+        border-top-left-radius: 10px !important;
+        border-top-right-radius: 10px !important;" align="center" bgcolor="#d3d3d3"
+        border="0" cellpadding="0"cellspacing="0">
+        <tbody>
+        <tr>
+            <td style="cursor: default;
+        padding: 1.5em 2em;">
+                <prm-logo style="height: 55px;"></prm-logo>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+<!-- BODY -->
+<table style="width: 600px;
+    display: block !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    clear: both !important;
+    border-spacing: 0 !important;
+    padding: 0 !important;" align="center" border="0" cellpadding="0"
+       cellspacing="0">
+        <tr>
+            <td>
+                <div translate="nui.email.institutionNote"></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="display: block !important;
+        max-width: 600px !important;
+        clear: both !important;
+        padding: 0 !important;">
+
+        <table style="width: 600px;
+        display: block !important;
+        max-width: 600px !important;
+        margin: 0 auto !important;
+        clear: both !important;
+        border-spacing: 0 !important;
+        padding: 0 !important;" bgcolor="#f3f3f3">
+            <tr ng-if="$ctrl.parentCtrl.note">
+                <td >
+                    <b translate="email.note"></b> {{$ctrl.parentCtrl.note}} 
+                </td>
+            </tr>
+        </table>
+<body class="body">
+
+    <table width="600" bgcolor="#f1f1f1" align="center" ng-if="$ctrl.parentCtrl.fullViewLoaded"
+                ng-repeat="item in $ctrl.parentCtrl.delayedItems" style="border-bottom: solid; border-color:#d3d3d3;">
+            <tr>
+                <td>
+                        <table style="padding: 1em 2em; width:100%">
+                                <td>
+                                    <a data-emailref="{{item.pnx.control.recordid[0]}}"
+                                    href="">
+                                        <p style="font-size: 20px;"><b>{{item.pnx.display.title[0]}}</b></p>
+                                    </a>
+                                    <p ng-if="item.pnx.display.lds01" style="margin: 5px 0;">{{item.pnx.display.lds02[0]}}</p>
+                                    <p ng-if="item.pnx.display.lds01" style="margin: 5px 0;">{{item.pnx.display.lds01[0]}}</p>
+                                    
+                                    <div ng-if="!item.pnx.display.lds01">
+                                        <p style="margin: 5px 0;">{{item.pnx.display.creator[0]}}</p>
+                                        <p ng-if="item.pnx.display.ispartof" style="margin: 5px 0;">{{item.pnx.display.ispartof[0]}}</p>
+                                        <p ng-if="!item.pnx.display.ispartof" style="margin: 5px 0;"><span ng-if="item.pnx.display.publisher"></span>{{item.pnx.display.publisher[0]}}&nbsp;:&nbsp;</span>
+                                                {{item.pnx.display.creationdate[0]}}
+                                        </p>
+                                    </div>
+                                    <a data-emailref="{{item.pnx.control.recordid[0]}}"  href=""><b><span translate="email.rebubSeeInCatalog"><span></b></a>
+                                </td>
+                        </table>
+                </td>
+            </tr>
+    </table>
+</body>
+
+    <table style="width: 600px;
+    max-width: 600px !important;
+    padding: 10px 10px 10px 10px;
+    background-color: #d3d3d3;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;">
+    </table>
+
+</html>

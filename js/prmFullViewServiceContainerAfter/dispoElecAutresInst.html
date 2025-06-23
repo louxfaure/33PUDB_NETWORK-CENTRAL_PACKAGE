@@ -1,0 +1,31 @@
+<div ng-if="$ctrl.serviceName==='getit_link1_0' && $ctrl.dispo_autres_inst===true" class="33PUDB_Elec_autres_inst">
+    <h3 class="medium-uppercase-bold"> <span translate="nui.brief.results.tabs.getit_other">Get it from other
+            institutions</span> </h3>
+    <md-list class="md-primoExplore-theme" role="list">
+        <md-list-item class="md-2-line separate-list-items narrow-list-item _md rebub-autres-abos" ng-repeat="almaInst in $ctrl.institutionsLIst" role="listitem">
+            <button class="neutralized-button layout-full-width layout-display-flex md-button md-primoExplore-theme md-ink-ripple" type="button" ng-click="$ctrl.showComponent(almaInst); ">      
+                <div layout="row" flex="100" layout-align="space-between center" class="layout-align-space-between-center layout-row flex-100">
+                    <div class="md-list-item-text">
+                        <h3 translate="{{almaInst}}">{{almaInst}}</h3>
+                        <p><span class="availability-status restricted" translate="delivery.code.restricted">Online access is restricted</span></p>
+                    </div>
+                    <prm-icon icon-type="svg" svg-icon-set="hardware" icon-definition="ic_keyboard_arrow_right_24px">
+                        <md-icon md-svg-icon="hardware:ic_keyboard_arrow_right_24px" alt="" class="md-primoExplore-theme"
+                            aria-hidden="true"></md-icon>
+                        <prm-icon-after parent-ctrl="$ctrl"></prm-icon-after>
+                    </prm-icon>
+                </div>
+                <div class="md-ripple-container"></div>
+            </button>
+    
+            <rebub-autres-abos rebub-etab="$ctrl.rebubEtab" ng-if="$ctrl.isShowContent[almaInst]">
+                <iframe iframe-onload="" class="mashup-iframe" ng-src="{{$ctrl.trustAsUrl($ctrl.openUrl)}}"
+                    style="width: 100%; border: none; overflow: hidden; height: 105px;" id="iFrameResizer1" scrolling="no">
+                </iframe>
+                <!-- <div ng-include src="$ctrl.templateURL"></div> -->
+            </rebub-autres-abos>
+        </md-list-item>
+    </md-list>
+    <h3>{{$ctrl.this.serviceName}}</h3>
+
+</div>

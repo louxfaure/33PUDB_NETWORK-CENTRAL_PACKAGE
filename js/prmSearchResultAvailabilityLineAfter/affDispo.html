@@ -1,0 +1,27 @@
+<div ng-repeat="availability in $ctrl.locations" layout="row" layout-align="start start">
+    <div layout="row" layout-align="start start"
+        class="layout-align-start-start layout-row avail-row {{availability.availability}}">
+        <prm-icon availability-type icon-type="{{$ctrl.parentCtrl.availabilityLineIcons.physicalMaterial.type}}"
+            svg-icon-set="{{$ctrl.parentCtrl.availabilityLineIcons.physicalMaterial.iconSet}}"
+            icon-definition="{{$ctrl.parentCtrl.availabilityLineIcons.physicalMaterial.icon}}"></prm-icon>
+        <md-button prm-brief-internal-button-marker
+            ng-click="$ctrl.parentCtrl.handleAvailability($index, $event);$event.preventDefault();"
+            class="neutralized-button arrow-link-button"
+            aria-label="{{$ctrl.parentCtrl.getTranslatedLine(availability.deliveryCode)}}"
+            title="{{$ctrl.parentCtrl.getTranslatedLine(availability.deliveryCode)}}">
+            <span class="button-content">
+                <span class="availability-status {{availability.availability}}"
+                    ng-class="{'text-rtl': $ctrl.parentCtrl.switchToLtrString()}"
+                    translate="{{availability.deliveryCode}}"
+                    translate-values="$ctrl.parentCtrl.getPlaceHolders($ctrl.result)" 
+                    translate-compile>
+                </span>
+            </span>
+            <prm-spinner class="inline-loader display-inline dark-on-light half-transparent"
+                ng-if="$ctrl.result.rtaInProgress"></prm-spinner>
+            <prm-icon link-arrow icon-type="{{$ctrl.parentCtrl.availabilityLineIcons.arrowRight.type}}"
+                svg-icon-set="{{$ctrl.parentCtrl.availabilityLineIcons.arrowRight.iconSet}}"
+                icon-definition="{{$ctrl.parentCtrl.availabilityLineIcons.arrowRight.icon}}"></prm-icon>
+        </md-button>
+    </div>
+</div>

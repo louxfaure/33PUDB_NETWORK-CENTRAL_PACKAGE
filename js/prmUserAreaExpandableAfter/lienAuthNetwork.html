@@ -1,0 +1,14 @@
+<md-menu ng-if="$ctrl.showMenu">
+    <md-button md-menu-origin ng-click="$mdOpenMenu()"><span translate="eshelf.signin.title"> S'identifier</md-button>
+    <md-menu-content width="2">
+        <md-menu-item>
+            <md-button ng-href="$ctrl.hostAuth/primo-explore/search?vid=33PUDB_UB_VU1&sortby=rank&lang=fr_FR">Via Babord + Bordeaux INP</md-button>
+        </md-menu-item>
+        <md-menu-item>
+            <md-button>Guides en ligne</md-button>
+        </md-menu-item>
+          <md-menu-item>
+            <md-button>RDV avec un bibliothécaire</md-button>
+        </md-menu-item>
+    </md-menu-content>
+</md-menu>

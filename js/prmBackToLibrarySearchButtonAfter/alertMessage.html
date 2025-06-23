@@ -1,0 +1,11 @@
+<md-toast class="page-notification" ng-show="$ctrl.showAlertMessage" style="top: 0px; position: sticky !important;">
+    <div class="md-toast-content" style="box-shadow:none; width: 100%;">
+        <span class='md-toast-text' flex translate='nui.message.announcement'>
+  </span>
+    </div>
+    <a class="close" ng-click='$ctrl.close()' aria-label="{{'nui.message.dismiss' | translate}}"
+       style="position: absolute; right: 1.5rem; top: 1.5rem;">
+        <prm-icon icon-type="svg" svg-icon-set="primo-ui" icon-definition="close">
+        </prm-icon>
+    </a>
+</md-toast>
