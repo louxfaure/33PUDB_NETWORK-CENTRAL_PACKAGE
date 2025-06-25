@@ -2,8 +2,12 @@ import {authentificationAutresInstConfig} from './prmLoginAfter/authentification
 import {logosInstsConfig} from './prmExploreFooterAfter/logosInsts';
 import {customBriefDisplayConfig} from './prmBriefResultAfter/customBriefDisplay';
 import {customRequestConfig} from './prmRequestAfter/customRequest';
-
-let app = angular.module('centralCustom',['angularLoad','ngMaterial']);
+import {forceAuthConfig} from './prmUserAreaExpandableAfter/forceAuth';
+import {tLevelFacetteConfig} from './prmFacetExactAfter/customTLevelFacette'
+// A activer avant de compiler
+// let app = angular.module('centralCustom',['angularLoad','ngMaterial']);
+// Activer pour le développement
+let app = angular.module('viewCustom', ['angularLoad', 'ngMaterial']);
 console.log("Début de la personnalisation angular");
 console.log("Modules AngularJS chargés : angularLoad, ngMaterial");
 if (app){
@@ -14,6 +18,8 @@ if (app){
     //Ajoute un pied de page avec les logos des autres institutions membres du réseau et le lien vers leurs catalogues
     app.component('prmExploreFooterAfter',logosInstsConfig);
     app.component('prmRequestAfter', customRequestConfig);
+    app.component('prmUserAreaExpandableAfter',forceAuthConfig);
+    app.component('prmFacetExactAfter', tLevelFacetteConfig);
 } 
 // Ajout d'un service permettant l'envoi des références vers ZoteroBib
 // START ------ Primo-ZoteroBib-Add-On ------/
@@ -174,3 +180,88 @@ function getZoterobibq(addata, risformattype, linktopnx)
 		return linktopnx;
 	}
 }
+/* Add count to availability facet */
+angular
+.module('availabilityCounts', [])
+.component('availabilityCounts', {
+  controller: function ($scope, availabilityCountsOptions) {
+
+    var avail_group = 'tlevel';
+
+    this.$onInit = function () {
+      var parent_ctrl = $scope.$parent.$parent.$ctrl;
+      this.facet_group = parent_ctrl.facetGroup.name;
+      this.facet_results = parent_ctrl.facetService.results;
+      if (this.facet_group == avail_group) {
+        this.processFacets();
+      }
+      // copy options from local package or central package defaults
+      this.msg = availabilityCountsOptions.msg;
+    }
+
+    this.processFacets = function () {
+      var self = this;
+      if (!self.msg) self.msg = '* Counts are approximate. Results may differ.';
+
+      angular.forEach(self.facet_results, function (result) {
+        if (result.name == avail_group) {
+          var first_value = result.values[0].value;
+          var interval = setInterval(find_facet, 100);
+          function find_facet() {
+            if (document.querySelector(self.getSelector(first_value))) {
+
+              // Clear interval
+              clearInterval(interval);
+
+              // Add availability counts as spans
+              angular.forEach(result.values, function (facet) {
+                var selector = self.getSelector(facet.value);
+                if (document.querySelector(selector)) {
+                  var facet_item = document.querySelector(selector);
+                  if (facet_item.querySelector('.facet-counter') == null) {
+                    var facet_text = facet_item.querySelector('.text-number-space');
+                    var span = document.createElement('span');
+                    var count = document.createTextNode(facet.count.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '*');
+                    span.setAttribute('class', 'text-italic text-in-brackets text-rtl facet-counter');
+                    span.appendChild(count);
+                    facet_text.after(span);
+                  }
+                }
+              });
+
+              // Facets are created and destroyed in the DOM when the group is toggled so watch for clicks
+              var availGroup = document.querySelector(self.getSelector(avail_group));
+              availGroup.addEventListener('click', function () {
+                self.processFacets();
+              });
+
+              // Add warning text
+              if (!availGroup.querySelector('.section-content .warning')) {
+                var warning = document.createElement('span');
+                var warningText = document.createTextNode(self.msg);
+                warning.setAttribute('class', 'warning');
+                warning.appendChild(warningText);
+                availGroup.querySelector('.section-content').appendChild(warning);
+              }
+            }
+          }
+        }
+      });
+    }
+
+    this.getSelector = function (value) {
+      if (value == avail_group) {
+        return 'div[data-facet-group="' + avail_group + '"]';
+      }
+      else {
+        return 'div[data-facet-value="' + avail_group + '-' + value + '"]';
+      }
+    }
+
+  }
+})
+// Set default values for options
+.value('availabilityCountsOptions', {
+  msg: '* Counts are approximate. Results may differ.'
+});
+//* End availability counts *//
