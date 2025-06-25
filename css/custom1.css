@@ -155,7 +155,7 @@ prm-facet h2[translate="nui.facets.title"] {
 [data-facet-value="rtype-publication_corrigendum"] {
   display: none !important;
 }
-[data-facet-value="rtype-online_first "] {
+[data-facet-value="rtype-online_first"] {
   display: none !important;
 }
 /*33PUDB Citation trail
